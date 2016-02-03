@@ -15,7 +15,7 @@ A repo for git coaching.
 - [git for windows](https://git-for-windows.github.io/)
 - [GitUp](http://gitup.co/)
 - [Waffle](https://waffle.io/)
-- [git flow]
+- [git flow](https://github.com/nvie/gitflow)
 
 
 ## Comandos - operações locais básicas
