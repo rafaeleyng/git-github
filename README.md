@@ -4,7 +4,7 @@ A repo for git coaching.
 
 ## Requisitos
 
-- Instalar [git](https://git-scm.com/). É necessário ter algum terminal/prompt de comando com o comando `git` disponível. Verificar com `git --version` ou algum comando semelhante. No Windows, as ferramentas GitHub Desktop e git for windows mostradas abaixo podem ajudar.
+- Instalar [git](https://git-scm.com/). É necessário ter algum terminal/prompt de comando com o comando `git` disponível. Verificar com `git --version` ou algum comando semelhante.
 - Criar uma conta no [GitHub](https://github.com/)
 
 
@@ -16,7 +16,7 @@ A repo for git coaching.
 - [GitUp](http://gitup.co/)
 - [Waffle](https://waffle.io/)
 - [git flow](https://github.com/nvie/gitflow)
-
+- [SmartGit](http://www.syntevo.com/smartgit/)
 
 ## Comandos - operações locais básicas
 
