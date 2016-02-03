@@ -4,7 +4,7 @@ A repo for git coaching.
 
 ## Requisitos
 
-- Instalar [git](https://git-scm.com/). É necessário ter algum terminal/prompt de comando com o comando `git` disponível. Verificar com `git --version` ou algum comando semelhante.
+- Instalar [git](https://git-scm.com/). É necessário ter algum terminal/prompt de comando com o comando `git` disponível. Verificar com `git --version` ou algum comando semelhante. No Windows, as ferramentas GitHub Desktop e git for windows mostradas abaixo podem ajudar.
 - Criar uma conta no [GitHub](https://github.com/)
 
 
@@ -15,6 +15,7 @@ A repo for git coaching.
 - [git for windows](https://git-for-windows.github.io/)
 - [GitUp](http://gitup.co/)
 - [Waffle](https://waffle.io/)
+- [git flow]
 
 
 ## Comandos - operações locais básicas
@@ -153,18 +154,22 @@ Checkout é o processo de pegar uma versão específica do projeto inteiro (ou t
 git merge <desired_branch>
 ```
 
-Faz merge da branch especificada com a branch atual. Na maior parte dos casos, git consegue resolver o merge automaticamente. Se houverem alterações conflitantes nas duas branches, é necessário resolver o merge e fazer um commit da resolução. Em geral só existem conflitos se a mesma linha de um arquivo foi alterada de forma diferente em cada branch.
+Faz merge da branch especificada com a branch atual.
 
-Existem diversos tipos de merge. Os mais comuns são o th
+O merge é a maneira mais comum de integrar branches. Na maior parte dos casos, git consegue resolver o merge automaticamente. Se houverem alterações conflitantes nas duas branches, é necessário resolver o merge e fazer um commit da resolução. Em geral só existem conflitos se a mesma linha de um arquivo foi alterada de forma diferente em cada branch.
+
+Pensando no grafo de commits, o merge cria um commit com referência para 2 ou mais commits pais.
 
 
 ### rebase
 
 ```sh
-git merge <desired_branch>
+git rebase <desired_branch>
 ```
 
+Faz rebase da branch especificada **no topo** da branch atual.
 
+É uma alternativa ao merge para integrar branches. Diferentemente do merge, não cria um novo commit que aponta para os commits pais, mas sim "corta fora" a branch alvo e reaplica ela, commit a commit, na ponta da branch atual.
 
 
 ## Comandos - trabalhando com remotes
@@ -290,14 +295,20 @@ Isso irá desfazer a ação do commit, mas não as alterações que o commit int
 
 ### merge vs rebase
 
-Embora o merge seja geralmente mais cômodo de fazer, rebase é geralmente considerado uma técnica superior. O use de rebase faz a história do projeto ficar mais linear do que expandido, e evita commits de resolução de conflito de merge.
+Embora o merge seja geralmente mais cômodo de fazer, rebase é geralmente considerado uma técnica superior. O use de rebase faz a história do projeto ficar mais linear do que expandida, e evita commits de resolução de merge.
 
 
 ### pull vs fetch
 
-Até agora, só nos preocupamos com 2 tipos de branches: `local branches` (branches no seu repositório, nas quais você trabalha) e `remote branches` (branches no remote, nas quais você faz pull ou push).
+Até agora, só nos preocupamos com 2 tipos de branches: *local branches* (branches no seu repositório, nas quais você trabalha) e *remote branches* (branches no remote, nas quais você faz pull ou push).
 
-Existe um terceiro tipo de branch, as `remote-tracking branches`. São branches **locais**, que fazem referência ao estado de branches remotas
+Existe um terceiro tipo de branch, as *remote-tracking branches*. São branches **locais**, que fazem referência ao estado de branches **remotas**. Enquanto que uma *local branch* se chama, por exemplo, `master`, uma *remote-tracking branch* se chama `origin/master`, onde `origin` é o nome do remote. Essas branches são atualizadas automaticamente em comandos que acessam a *remote branch* correspondente.
+
+A diferença dos comandos `pull` e `fetch`:
+
+- `pull` atualiza a referência de 1 *remote-tracking branch* e de sua *local branch* correspondente. Por exemplo, se você está na `master` e faz `git pull`, suas branches `origin/master` (remote-tracking) e `master` (local) serão atualizadas com o conteúdo da branch no servidor.
+
+- `fetch` atualiza a referência de **todas** *remote-tracking branches* e de **nenhuma** *local branch*. É uma forma de baixar os dados de todas as branches para sua máquina sem afetar suas *local branches*, apenas suas *remote-tracking branches*. Após um fetch, pode-se fazer um merge ou rebase da *remote-tracking branch* para a *local branch*, como `git merge origin/master`.
 
 
 
