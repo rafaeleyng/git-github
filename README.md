@@ -367,15 +367,34 @@ GitHub fornece um mecanismo simplificado de hospedagem de sites estáticos. Supo
 
 Basta criar uma branch chamada `gh-pages` e dar push para o GitHub. A home do site estático será um arquivo `index.html` na raíz do projeto, e estará disponível em `<nome-do-usuario>.github.io/<nome-do-projeto>`.
 
+
 ## Workflows
 
 ### topic branch
 
+Existe uma branch estável, a partir da qual são criadas branches para desenvolvimento de features. Quando for desejado integrar a feature, integra-se nessa branch estável através de *pull request* (preferencialmente com *code review*).
+
+![topic branch workflow](https://cloud.githubusercontent.com/assets/4842605/12835036/b0842866-cb93-11e5-9197-a2e96a2ee472.png)
+
+Opcionalmente pode haver uma branch estável de desenvolvimento e uma branch de produção que reflete o estado do sistema no ar, e só recebe da branch de desenvolvimento no deploy de novas versões.
+
+
 ### git flow
+
+O git flow prevê um rígido esquema de branches, com 5 tipos de branches diferentes: features, development, releases, master e hotfixes.
+
+![git flow workflow](https://cloud.githubusercontent.com/assets/4842605/12835086/29f607be-cb94-11e5-9ead-c60ca7c6468e.png)
+
+
+Referências:
+
+[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+[git-flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 ### referência de workflows
 
-Veja o guia da [Atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow)
+Veja o guia da [Atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows)
+
 
 ## Ferramentas recomendadas
 
