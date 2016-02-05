@@ -176,7 +176,7 @@ Demonstração no navegador.
 **remote** - um repositório remoto do projeto, com o qual nosso repositório local se comunica. Normalmente em um serviço como GitHub, mas não necessariamente. O remote default se chama **origin**.
 
 
-## remote
+### remote
 
 ```sh
 git remote
