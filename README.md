@@ -361,6 +361,12 @@ githooks são scripts arbitrários (você define o que quiser) que são executad
 Para mais detalhes, veja [este post](http://codeheaven.io/simple-git-hooks-with-ghooks/).
 
 
+### gh-pages
+
+GitHub fornece um mecanismo simplificado de hospedagem de sites estáticos. Suporta *custom domains* e *gzip*.
+
+Basta criar uma branch chamada `gh-pages` e dar push para o GitHub. A home do site estático será um arquivo `index.html` na raíz do projeto, e estará disponível em `<nome-do-usuario>.github.io/<nome-do-projeto>`.
+
 ## Workflows
 
 ### topic branch
