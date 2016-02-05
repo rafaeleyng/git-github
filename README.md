@@ -354,6 +354,13 @@ A diferença dos comandos `pull` e `fetch`:
 Dependendo do que você fizer, pode acabar em *detached HEAD state*. Embora pareça algo muito errado, simplesmente significa que seu HEAD está apontando diretamente para um commit (e não para uma branch, que por sua vez aponta para o commit, que é normalmente a situação do seu HEAD num projeto).
 
 
+### Git Hooks
+
+githooks são scripts arbitrários (você define o que quiser) que são executados em função de certos comandos git. Por exemplo, pode-se rodar testes ou build antes de fazer um commit ou um push e interromper o comando caso os testes falhem.
+
+Para mais detalhes, veja [este post](http://codeheaven.io/simple-git-hooks-with-ghooks/).
+
+
 ## Workflows
 
 ### topic branch
@@ -369,10 +376,11 @@ Veja o guia da [Atlassian](https://www.atlassian.com/git/tutorials/comparing-wor
 - [SourceTree](https://www.sourcetreeapp.com/)
 - [GitHub Desktop](https://desktop.github.com/)
 - [git for windows](https://git-for-windows.github.io/)
-- [GitUp](http://gitup.co/)
+- [SmartGit](http://www.syntevo.com/smartgit/)
 - [Waffle](https://waffle.io/)
 - [git flow](https://github.com/nvie/gitflow)
-- [SmartGit](http://www.syntevo.com/smartgit/)
+- [GitUp](http://gitup.co/)
+- [ghooks](https://github.com/gtramontina/ghooks)
 
 
 ## Materiais recomendados
