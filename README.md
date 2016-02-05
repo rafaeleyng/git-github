@@ -9,16 +9,6 @@ A repo for Git & GitHub coaching.
 - Criar uma conta no [GitHub](https://github.com/)
 
 
-## Ferramentas recomendadas
-
-- [SourceTree](https://www.sourcetreeapp.com/)
-- [GitHub Desktop](https://desktop.github.com/)
-- [git for windows](https://git-for-windows.github.io/)
-- [GitUp](http://gitup.co/)
-- [Waffle](https://waffle.io/)
-- [git flow](https://github.com/nvie/gitflow)
-- [SmartGit](http://www.syntevo.com/smartgit/)
-
 ## Comandos - operações locais básicas
 
 ### init
@@ -27,7 +17,7 @@ A repo for Git & GitHub coaching.
 git init
 ```
 
-Cria um repositório git na pasta atual. Ver a pasta oculta `.git`
+Cria um repositório git na pasta atual. Ver a pasta oculta `.git`.
 
 
 ### status
@@ -135,7 +125,7 @@ git branch -d <branch_name>
 git branch -D <branch_name> # force delete
 ```
 
-Lista, cria, apaga branches. No git, branches não são cópias do projeto, são apenas referências **móveis** para commits.  A branch default **master**.
+Lista, cria, apaga branches. No git, branches não são cópias do projeto, são apenas referências **móveis** para commits.  A branch default se chama **master**.
 
 ### checkout
 
@@ -146,7 +136,7 @@ git checkout -b <branch_name> # cria e troca para <branch_name>
 git checkout -b <branch_name> <tag_name> # cria <branch_name> com o estado da tag especificada
 ```
 
-Checkout é o processo de pegar uma versão específica do projeto inteiro (ou também de arquivos específicos) da base de dados do git e disponibilizar no *working directory*. *Working directory* é a parte do repositório git onde você trabalha (suas pastas e arquivos), diferente do *git directory* (a pasta .git), onde git armazena seus dados.
+Checkout é o processo de pegar uma versão específica do projeto inteiro (ou também de arquivos específicos) do *git directory* e disponibilizar no *working directory*. *Working directory* é a parte do repositório git onde você trabalha (suas pastas e arquivos), diferente do *git directory* (a pasta .git), onde git armazena seus dados.
 
 
 ### merge
@@ -159,7 +149,7 @@ Faz merge da branch especificada com a branch atual.
 
 O merge é a maneira mais comum de integrar branches. Na maior parte dos casos, git consegue resolver o merge automaticamente. Se houverem alterações conflitantes nas duas branches, é necessário resolver o merge e fazer um commit da resolução. Em geral só existem conflitos se a mesma linha de um arquivo foi alterada de forma diferente em cada branch.
 
-Pensando no grafo de commits, o merge cria um commit com referência para 2 ou mais commits pais.
+Pensando no grafo de commits, o merge cria um novo nodo (um commit) com referência para 2 ou mais commits pais.
 
 
 ### rebase
@@ -171,6 +161,13 @@ git rebase <desired_branch>
 Faz rebase da branch especificada **no topo** da branch atual.
 
 É uma alternativa ao merge para integrar branches. Diferentemente do merge, não cria um novo commit que aponta para os commits pais, mas sim "corta fora" a branch alvo e reaplica ela, commit a commit, na ponta da branch atual.
+
+
+## GitHub repositories
+
+### organization, repository, team
+
+Demonstração no navegador.
 
 
 ## Comandos - trabalhando com remotes
@@ -200,6 +197,8 @@ Cria um repositório local clonado a partir de um repositório remoto.
 
 Em um projeto em equipe, a pessoa que cria o projeto dá `git init` e manda para um remote. Todos os demais dão `git clone` a partir desse remote.
 
+Quando clonamos um repositório de um remote, este remote automaticamente é adicionado com o nome de origin.
+
 
 ### pull
 
@@ -222,7 +221,25 @@ git push --tags # tags precisam de um push específico
 Atualiza a branch remota com o conteúdo da branch local. Se a ponta das duas branches for diferente, requer pull + merge antes do push. Ou seja, o conflito é resolvido localmente, não remotamente.
 
 
+## GitHub issues & pull requests
+
+### issues e pull requests
+
+Demonstração no navegador.
+
+
 ## Tópicos especiais
+
+### branch para "backup"
+
+Quando você vai fazer alguma coisa que não tem muita certeza, pode criar uma branch de "backup" para voltar com segurança a um ponto anterior. Simplesmente faça:
+
+```sh
+git branch <backup-branch-name> # qualquer nome não usado ainda
+```
+
+Tudo o que você fez é criar uma referência (o nome da branch) a um ponto específico do projeto ao qual você pode querer voltar, usando um `git checkout <branch>`.
+
 
 ### desfazendo alterações locais
 
@@ -245,12 +262,16 @@ Cuidado com esses comandos. Eles não são intuitivos, e são comandos que podem
 
 ### reescrever história
 
-Certos comandos de git reescrevem a história do projeto, ou seja, permitem apagar ou alterar objetos existentes do grafo de commits. Em certos casos isso não gera problemas, mas em geral deve ser evitado. A regra é: **não reescreva algo que você já enviou para um remote**. Ou seja, se você criou um commit no seu repositório local, você pode escolher apagá-lo sem problemas. Mas se você já enviou esse commit para o remote e apagá-lo no repositório local, pode gerar sérios conflitos com a versão do remote ou com outro desenvolvedor que já havia baixado aquele commit.
+Certos comandos de git reescrevem a história do projeto, ou seja, permitem apagar ou alterar objetos existentes do grafo de commits. Em certos casos isso não gera problemas, mas em geral deve ser evitado.
+
+A regra é: **não reescreva algo que você já enviou para um remote**.
+
+Ou seja, se você criou um commit no seu repositório local, você pode escolher apagá-lo sem problemas. Mas se você já enviou esse commit para o remote e apagá-lo no repositório local, pode gerar sérios conflitos com a versão do remote ou com outro desenvolvedor que já havia baixado aquele commit.
 
 
 ### revertendo um commit
 
-Para commits que já sofreram push, é recomendável usar a técnica de fazer um novo commit desfazendo as alterações que o commit que você deseja apagar introduziu. Ferramentas como GitHub Desktop e SourceTree fazem isso automaticamente, com a opção **Revert commit**.
+Para commits que já sofreram push, é recomendável usar a técnica de fazer um novo commit desfazendo as alterações que foram introduzidas por esse commit que você deseja apagar. Ferramentas como GitHub Desktop e SourceTree fazem isso automaticamente, com a opção **Revert commit**.
 
 Para commits locais que não sofreram push, pode-se usar:
 
@@ -258,7 +279,7 @@ Para commits locais que não sofreram push, pode-se usar:
 git reset --hard HEAD~1 # CUIDADO! Você vai perder o último commit
 ```
 
-onde `1` é o número de commits que se deseja voltar. Estamos literalmente voltando a ponta do grafo em 1 commit e perdendo referência para o commit "apagado".
+onde `1` é o número de commits que se deseja voltar, contando a partir do HEAD. Estamos literalmente voltando a ponta do grafo em 1 commit e perdendo referência para o commit "apagado".
 
 
 ### amend
@@ -272,7 +293,7 @@ Este comando refaz o último commit, adicionando ao commit tudo que estiver na *
 Serve para alguns cenários comuns:
 
 1. reescrever a mensagem do último commit
-1. adicionar ao último commit alguma coisa que esquecemos de fazer, e que não queremos fazer em um novo commit
+1. adicionar/remover ao último commit alguma coisa que esquecemos, e que não queremos fazer em um novo commit
 
 
 ### reset hard / soft
@@ -298,6 +319,21 @@ Isso irá desfazer a ação do commit, mas não as alterações que o commit int
 
 Embora o merge seja geralmente mais cômodo de fazer, rebase é geralmente considerado uma técnica superior. O use de rebase faz a história do projeto ficar mais linear do que expandida, e evita commits de resolução de merge.
 
+Rebase é um comando complexo que suporta diversas nuances. Existem projetos que adotam a técnica de "um commit por pull request", para manter um histórico mais conciso e legível. O desenvolvedor pode trabalhar em sua branch local fazendo diversos commits, e antes de fazer push para o remote, usar rebase para fazer *squash* dos commits em um só. Veja a documentação para mais detalhes.
+
+
+### stash
+
+Às vezes estamos trabalhando em alguma alteração e precisamos parar para resolver alguma outra coisa no projeto. Geralmente isso envolveria uma troca de branches, ou resetar tudo o que fizemos até agora e recomeçar depois. Nesses casos, geralmente essas condições são verdadeiras:
+
+- não queremos que nossas alterações (ainda não fizemos commit) em uma branch sejam levadas para a outra
+- não queremos fazer commit pois a tarefa está incompleta
+- não queremos desfazer e perder as alterações
+
+`git stash` é um comando que "coloca de lado" todas nossas alterações atuais, em uma pilha, e nos deixa com o *working directory* limpo. Quando quisermos aplicar novamente nossas alterações, usamos `git stash apply`.
+
+Note que o `stash` tem o comportamento default de uma pilha, mas podemos aplicar alterações que não estejam no topo caso já tenhamos empilhado mais coisas. Veja a documentação para mais detalhes.
+
 
 ### pull vs fetch
 
@@ -312,12 +348,30 @@ A diferença dos comandos `pull` e `fetch`:
 - `fetch` atualiza a referência de **todas** *remote-tracking branches* e de **nenhuma** *local branch*. É uma forma de baixar os dados de todas as branches para sua máquina sem afetar suas *local branches*, apenas suas *remote-tracking branches*. Após um fetch, pode-se fazer um merge ou rebase da *remote-tracking branch* para a *local branch*, como `git merge origin/master`.
 
 
+### detached HEAD
 
-## GitHub
+Dependendo do que você fizer, pode acabar em *detached HEAD state*. Embora pareça algo muito errado, simplesmente significa que seu HEAD está apontando diretamente para um commit (e não para uma branch, que por sua vez aponta para o commit, que é normalmente a situação do seu HEAD num projeto).
 
-### organization, repository, team
 
-### issues e pull requests
+## Workflows
+
+### topic branch
+
+### git flow
+
+### referência de workflows
+
+Veja o guia da [Atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow)
+
+## Ferramentas recomendadas
+
+- [SourceTree](https://www.sourcetreeapp.com/)
+- [GitHub Desktop](https://desktop.github.com/)
+- [git for windows](https://git-for-windows.github.io/)
+- [GitUp](http://gitup.co/)
+- [Waffle](https://waffle.io/)
+- [git flow](https://github.com/nvie/gitflow)
+- [SmartGit](http://www.syntevo.com/smartgit/)
 
 
 ## Materiais recomendados
