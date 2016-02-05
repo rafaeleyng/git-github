@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/rafaeleyng/git-github.png?label=ready&title=Ready)](https://waffle.io/rafaeleyng/git-github)
 # Git & GitHub
 
 A repo for Git & GitHub coaching.
