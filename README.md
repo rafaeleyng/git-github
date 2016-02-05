@@ -368,6 +368,16 @@ GitHub fornece um mecanismo simplificado de hospedagem de sites estáticos. Supo
 Basta criar uma branch chamada `gh-pages` e dar push para o GitHub. A home do site estático será um arquivo `index.html` na raíz do projeto, e estará disponível em `<nome-do-usuario>.github.io/<nome-do-projeto>`.
 
 
+### Submodules & subtrees
+
+Se você **precisar embutir código reutilizável** (um módulo ou projeto auto-contido) dentro de um projeto que o contenha, e **não puder utilizar algum gerenciador de dependências** para isso por alguma questão específica da tecnologia/framework que estiver utilizando, submodules e subtrees podem ser a solução. Mas somente se não houver alternativa melhor.
+
+Este tema é complexo e não será tratado aqui. Estas são provavelmente as melhores referências sobre isso:
+
+[Submodules](https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.lqo946vqm)
+[Subtrees](https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.kl471llr0)
+
+
 ## Workflows
 
 ### topic branch
