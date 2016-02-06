@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/rafaeleyng/git-github.png?label=ready&title=Ready)](https://waffle.io/rafaeleyng/git-github)
 # Git & GitHub
 
 A repo for Git & GitHub coaching.
@@ -375,6 +374,7 @@ Se você **precisar embutir código reutilizável** (um módulo ou projeto auto-
 Este tema é complexo e não será tratado aqui. Estas são provavelmente as melhores referências sobre isso:
 
 [Submodules](https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.lqo946vqm)
+
 [Subtrees](https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec#.kl471llr0)
 
 
@@ -399,6 +399,7 @@ O git flow prevê um rígido esquema de branches, com 5 tipos de branches difere
 Referências:
 
 [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+
 [git-flow cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 ### referência de workflows
