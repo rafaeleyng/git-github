@@ -52,6 +52,8 @@ Se o arquivo nunca foi commitado, git passa a rastrear (track) o arquivo.
 
 Se o arquivo já foi commitado, git adiciona ao índice de alterações que farão parte do próximo commit.
 
+Se não houvesse o  `git add`, teríamos que fazer sempre commit de todas as alterações, sem poder de escolha.
+
 ### commit
 
 ```sh
