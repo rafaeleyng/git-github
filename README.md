@@ -85,6 +85,8 @@ build/
 node_modules/
 ```
 
+`.gitattributes` - arquivo na raíz do projeto, contendo algumas configurações para aquele projeto.
+
 `.gitconfig` - arquivo na home do usuário, com configurações globais da instalação do git. Ex:
 
 ```text
@@ -332,7 +334,7 @@ Rebase é um comando complexo que suporta diversas nuances. Existem projetos que
 - não queremos fazer commit pois a tarefa está incompleta
 - não queremos desfazer e perder as alterações
 
-`git stash` é um comando que "coloca de lado" todas nossas alterações atuais, em uma pilha, e nos deixa com o *working directory* limpo. Quando quisermos aplicar novamente nossas alterações, usamos `git stash apply`.
+`git stash` é um comando que "coloca de lado" todas nossas alterações atuais, em uma pilha, e nos deixa com o *working directory* limpo. Quando quisermos aplicar novamente nossas alterações, usamos `git stash pop`.
 
 Note que o `stash` tem o comportamento default de uma pilha, mas podemos aplicar alterações que não estejam no topo caso já tenhamos empilhado mais coisas. Veja a documentação para mais detalhes.
 
